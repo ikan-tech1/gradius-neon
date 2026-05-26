@@ -6,7 +6,7 @@ A browser-based Gradius anthology built with **Vite**, **TypeScript**, and **Thr
 
 ## Live demo
 
-<!-- DEPLOY_URL -->
+**https://gradius-neon.vercel.app**
 
 ## Features
 
