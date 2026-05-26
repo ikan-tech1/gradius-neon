@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#06060f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="GRADIUS NEON" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>GRADIUS NEON — Anthology</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="hangar-bg" aria-hidden="true"></div>
+      <div id="splash-overlay" class="splash-overlay">
+        <div class="splash-content">
+          <h1 class="splash-logo">GRADIUS <span class="logo-accent">NEON</span></h1>
+          <p class="splash-tag">ANTHOLOGY · PROCEDURAL NEON</p>
+          <button type="button" id="splash-start" class="btn-primary splash-btn">ENTER HANGAR</button>
+        </div>
+      </div>
+      <div id="screen-root"></div>
+      <div id="game-layer" class="hidden">
+        <div class="viewport-frame">
+          <div class="canvas-shell">
+            <canvas id="game-canvas"></canvas>
+            <div class="scanline-overlay" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div id="hud" class="hud-panel">
+          <div class="hud-top">
+            <div class="hud-stat">
+              <span class="hud-label">SCORE</span>
+              <span id="hud-score" class="hud-value hud-value--gold">0</span>
+            </div>
+            <div class="hud-stat hud-stat--center">
+              <span id="hud-stage" class="hud-sector">STAGE</span>
+            </div>
+            <div class="hud-stat hud-stat--right">
+              <span class="hud-label">LIVES</span>
+              <div id="hud-lives" class="life-pips"></div>
+            </div>
+          </div>
+          <div class="hud-mid">
+            <div class="weapon-chip">
+              <span class="hud-label">WEAPON</span>
+              <span id="hud-weapon">Normal</span>
+            </div>
+            <span id="hud-rank" class="rank-badge">—</span>
+          </div>
+          <div id="hud-power-bar" class="power-bar"></div>
+          <div class="hud-bars">
+            <div class="hud-mini">
+              <span>OPT</span><span id="hud-options">—</span>
+            </div>
+            <div class="hud-mini">
+              <span>SHD</span><span id="hud-shield">—</span>
+            </div>
+            <div class="meter">
+              <div class="meter-head"><span>OVERDRIVE</span></div>
+              <div class="meter-track"><div id="hud-overdrive" class="meter-fill meter-fill--ult"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="wave-banner" class="wave-banner"></div>
+
+        <div id="pause-overlay" class="pause-overlay hidden">
+          <div class="pause-card">
+            <span class="pause-label">HALT</span>
+            <p>PAUSED</p>
+            <small>Press P to resume</small>
+          </div>
+        </div>
+
+        <div id="continue-overlay" class="continue-overlay hidden">
+          <div class="pause-card">
+            <span class="pause-label">CONTINUE?</span>
+            <p>INSERT CREDIT</p>
+            <p class="continue-countdown"><span id="continue-timer">8</span></p>
+            <button type="button" id="continue-btn" class="btn-primary">CONTINUE</button>
+          </div>
+        </div>
+
+        <div id="interstitial-overlay" class="interstitial-overlay hidden">
+          <div class="interstitial-card glass-panel">
+            <span class="interstitial-label">STAGE CLEAR</span>
+            <p id="interstitial-label" class="interstitial-stage">—</p>
+            <p id="interstitial-rank" class="interstitial-rank">RANK C</p>
+          </div>
+        </div>
+
+        <div id="screen-flash" class="screen-flash" aria-hidden="true"></div>
+
+        <div id="toast" class="game-toast"></div>
+
+        <div class="touch-controls" id="touch-controls">
+          <div id="touch-move" class="touch-zone touch-zone--move">
+            <span>DRAG ↑↓</span>
+          </div>
+          <div class="touch-actions">
+            <button type="button" id="touch-secondary" class="touch-btn touch-btn--sec">MSL</button>
+            <button type="button" id="touch-fire" class="touch-btn touch-btn--fire">FIRE</button>
+            <button type="button" id="touch-ultimate" class="touch-btn touch-btn--ult">OD</button>
+          </div>
+        </div>
+
+        <div class="desktop-hints">
+          <kbd>W</kbd><kbd>S</kbd> move · <kbd>Space</kbd> fire · <kbd>Shift</kbd> missile · <kbd>Q</kbd> overdrive · <kbd>P</kbd> pause
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

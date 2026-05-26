@@ -1,0 +1,8 @@
+{
+  "name": "GRADIUS NEON",
+  "short_name": "Gradius",
+  "display": "standalone",
+  "background_color": "#06060f",
+  "theme_color": "#06060f",
+  "start_url": "/"
+}
